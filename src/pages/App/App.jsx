@@ -4,7 +4,7 @@ import ActorListPage from '../ActorListPage/ActorListPage'
 import MoviesListPage from '../MovieListPage/MoviesListPage'
 import MovieDetailPage from '../MovieDetailPage/MovieDetailPage'
 import NavBar from '../../components/NavBar/NavBar'
-import { Routes, Route } from 'react-router'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -15,15 +15,16 @@ function App() {
         REACT MOVIES
         { user ?
         <>
-          <NavBar />
+          <NavBar user={ user } />
+          <p>Welcome, { user }</p>
           <Routes>
-            <Route path='/movie' element={ < MoviesListPage /> } />
-            <Route path='/movie/detail' element={ < MovieDetailPage /> } />
-            <Route path='/actor' element={ < ActorListPage /> } />
+            <Route path='/' element={ < MoviesListPage /> } />
+            <Route path='/movies/:movieName' element={ < MovieDetailPage /> } />
+            <Route path='/actors' element={ < ActorListPage /> } />
           </Routes>
         </>
           :
-          <LoginPage />
+          <LoginPage setUser={ setUser } />
         }
       </main>
   )

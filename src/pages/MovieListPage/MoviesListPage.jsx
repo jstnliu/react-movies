@@ -4,7 +4,7 @@ export default function MovieListPage() {
   return (
     <>
     <h1>MovieListPage</h1>
-    <Link to='/movie/detail' >Movie Details</Link>
+    <Link to='/movies/:movieName' >Movie Details</Link>
     </>
 )
 }
